@@ -111,7 +111,7 @@ func (c *OandaConnection) GetCandles(instrument string, count string, granularit
 
 	return data
 }
-func (c *OandaConnection) GetCandlesDateFrame(instrument string, count string, granularity string, fromEpoch string, toEpoch string) InstrumentHistory {
+func (c *OandaConnection) GetCandlesUsingDateFrame(instrument string, granularity string, fromEpoch string, toEpoch string) InstrumentHistory {
 	endpoint := "/instruments/" + instrument + "/candles?from=" + fromEpoch + "&to=" + toEpoch + "&granularity=" + granularity
 	candles := c.Request(endpoint)
 	data := InstrumentHistory{}
